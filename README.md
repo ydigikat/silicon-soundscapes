@@ -1,174 +1,126 @@
-# just-the-docs-template
+# Welcome To Silicon Soundscapes
 
-This is a *bare-minimum* template to create a [Jekyll] site that:
+## FPGA Synthesis: An Old Engineer's New Adventure
 
-- uses the [Just the Docs] theme;
-- can be built and published on [GitHub Pages];
-- can be built and previewed locally, and published on other platforms.
+After spending three decades elbow-deep in embedded systems, watching the industry evolve from simple 8-bit microcontrollers to today's complex SoCs, I've decided it's time for a new challenge. 
 
-More specifically, the created site:
+Rather than settling into a quiet retirement, I've found myself drawn into the fascinating world of FPGA-based audio synthesis - a perfect fusion of my engineering career and my parallel life as a musician.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem;
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages.
+## Where Engineering Meets Music
 
-To get started with creating a site, simply:
+My journey with synthesizers began long before I started working with embedded systems. In the 1980s, I was performing with synthesizers during what many consider the golden age of electronic music. 
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+![alt text](assets/dx7.png)
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](#hosting-your-docs-from-an-existing-project-repo).
+Those hands-on experiences with legendary instruments like the Yamaha DX7, Roland Juno-106, Yahama CS20M and others didn't just make me a better musician - they gave me a deep appreciation for the intricate relationship between technology and musical expression.
 
-After completing the creation of your new site on GitHub, update it as needed:
+Now, after years of engineering various embedded systems by day while continuing to explore electronic music by night, I'm finally in a position to bridge these two worlds. 
 
-## Replace the content of the template pages
+The prospect of designing my own FM synthesizer isn't just an engineering challenge - it's an opportunity to apply decades of both technical knowledge and musical intuition and to share my journey with others.
 
-Update the following files to your own content:
+## Why FPGAs and Why Now?
 
-- `index.md` (your new home page)
-- `README.md` (information for those who access your site repo on GitHub)
+The journey from traditional embedded systems to FPGAs feels natural to me. Throughout my career, I've often bumped up against the limitations of fixed-architecture processors, particularly when dealing with real-time systems. 
 
-## Changing the version of the theme and/or Jekyll
+FPGAs offer something different - a blank canvas where we can implement true parallel processing and create dedicated hardware structures for our specific needs.
 
-Simply edit the relevant line(s) in the `Gemfile`.
+Having spent countless hours programming patches on hardware synthesizers and then years programming embedded audio devices, I understand both the musician's perspective and the engineer's challenge. 
 
-## Adding a plugin
+There's something poetic about using FPGAs to recreate and potentially enhance the digital synthesis techniques I first encountered as a performing musician decades ago.
 
-The Just the Docs theme automatically includes the [`jekyll-seo-tag`] plugin.
+## The Digilent CMOD-A7: A Perfect Starting Point
+![alt text](assets/cmod-A7.png)
 
-To add an extra plugin, you need to add it in the `Gemfile` *and* in `_config.yml`. For example, to add [`jekyll-default-layout`]:
+I chose the Digilent CMOD-A7 as my development platform for several reasons. It's affordable, well-documented, and offers enough resources to create many capable  synthesizers while maintaining a level of constraint that forces good design practices. 
 
-- Add the following to your site's `Gemfile`:
+Plus, its compact form factor is more familiar to me, reminding me of the microcontroller development boards I've worked with throughout my career.
 
-  ```ruby
-  gem "jekyll-default-layout"
-  ```
+Of course, this project will work equally well on any board that hosts a Xilinx (AMD) 7 Series FPGA of equivalent (or better) capability.  Indeed, I started this project on a Digilent Arty-Z7 SOC board.
 
-- And add the following to your site's `_config.yml`:
+## What to Expect from This Series
 
-  ```yaml
-  plugins:
-    - jekyll-default-layout
-  ```
+Over the coming months, I'll be sharing my journey of developing an FM (more correctly PM) synthesizer on the CMOD-A7. 
 
-Note: If you are using a Jekyll version less than 3.5.0, use the `gems` key instead of `plugins`.
+We'll cover everything from basic FPGA concepts to the intricacies of implementing digital oscillators and FM operators. 
 
-## Publishing your site on GitHub Pages
+![alt text](assets/4op.png)
 
-1.  If your created site is `YOUR-USERNAME/YOUR-SITE-NAME`, update `_config.yml` to:
+This series is aimed at makers and hobbyists, and perhaps engineers who, like me, might have extensive experience in traditional embedded systems but are looking to explore the world of FPGAs.  
 
-    ```yaml
-    title: YOUR TITLE
-    description: YOUR DESCRIPTION
-    theme: just-the-docs
+Musicians interested in the technical side of synthesis will also find plenty to digest here.
 
-    url: https://YOUR-USERNAME.github.io/YOUR-SITE-NAME
+### Here's what we'll be covering:
 
-    aux_links: # remove if you don't want this link to appear on your pages
-      Template Repository: https://github.com/YOUR-USERNAME/YOUR-SITE-NAME
-    ```
+1. Setting up the development environment and basic FPGA concepts
+2. Implementing a direct digital synthesizer (DDS)
+3. Building FM operators and understanding the math behind FM synthesis
+4. Creating a musical envelope generator (with insights from classic synthesizers)
+5. Developing a performance-oriented control interface
+6. Adding effects and modulation capabilities inspired by vintage synthesizers
 
-2.  Push your updated `_config.yml` to your site on GitHub.
+I'll be approaching these topics from the dual perspective of an engineer and musician. 
 
-3.  In your newly created repo on GitHub:
-    - go to the `Settings` tab -> `Pages` -> `Build and deployment`, then select `Source`: `GitHub Actions`.
-    - if there were any failed Actions, go to the `Actions` tab and click on `Re-run jobs`.
+Expect plenty of practical tips, hard-learned lessons from both disciplines, and perhaps a few war stories from both the engineering trenches and the synthesizer performance days.
 
-## Building and previewing your site locally
+### Getting Started: What You'll Need
+Before we dive into building our synthesizer, let me share what background knowledge will help you get the most out of this series. Don't worry if you're not an expert in all areas - curiosity and willingness to learn are your most important assets!
 
-Assuming [Jekyll] and [Bundler] are installed on your computer:
 
-1.  Change your working directory to the root directory of your site.
 
-2.  Run `bundle install`.
+### Helpful Background Knowledge
 
-3.  Run `bundle exec jekyll serve` to build your site and preview it at `localhost:4000`.
+- Experience with C/C++ embedded programming
+- Basic familiarity with SystemVerilog HDL
+- Fundamental digital audio concepts
+- General understanding of synthesis and MIDI
 
-    The built site is stored in the directory `_site`.
+### About SystemVerilog
+I've chosen to focus this series on building our synthesizer rather than teaching SystemVerilog basics. This lets us spend more time on the exciting parts: creating digital audio systems and designing reusable FPGA components. If you're new to SystemVerilog, there are many excellent resources available online and in print that can help you build the foundation we'll use here.
 
-## Publishing your built site on a different platform
+### What's Expected
+You'll find it helpful to know:
 
-Just upload all the files in the directory `_site`.
+- Basic HDL concepts (modules, ports, signals)
+- Common SystemVerilog constructs (always blocks, type declarations)
+- How to navigate Vivado and Vitis tools
 
-## Customization
+### What's Not Required
+Don't worry if you're not familiar with:
 
-You're free to customize sites that you create with this template, however you like!
+- Advanced SystemVerilog features
+- FPGA optimization techniques
+- Audio DSP algorithms
+- Real-time system design
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+We'll explore these topics together as we build our synthesizer!
 
-## Hosting your docs from an existing project repo
+## Why Follow Along?
+Whether you're an experienced engineer looking to branch out, a musician interested in the technical side of synthesis, or someone curious about FPGAs, this series will offer a practical, hands-on approach to digital synthesis. 
 
-You might want to maintain your docs in an existing project repo. Instead of creating a new repo using the [just-the-docs template](https://github.com/just-the-docs/just-the-docs-template), you can copy the template files into your existing repo and configure the template's Github Actions workflow to build from a `docs` directory. You can clone the template to your local machine or download the `.zip` file to access the files.
+I'll share not just the successes, but also the false starts, dead ends and mistakes - because that's often where the real learning happens.
 
-### Copy the template files
+We'll start simple and add more advanced optimisations, such as Time Division Multiplexing (TMD) and pipe-lining as we go along.  Building from a single sine oscillator to a fully fledged, 12 voice, 4-operator FM instrument.
 
-1.  Create a `.github/workflows` directory at your project root if your repo doesn't already have one. Copy the `pages.yml` file into this directory. GitHub Actions searches this directory for workflow files.
+The beauty of FPGAs is that they let us create true hardware implementations of our ideas. We're not just writing software that runs on a processor; we're designing the processor itself, tailored specifically to our needs. 
 
-2.  Create a `docs` directory at your project root and copy all remaining template files into this directory.
+For anyone who's ever fought with CPU cycles or interrupt latency while trying to generate audio, this is a liberating, if challenging, experience.
 
-### Modify the GitHub Actions workflow
+## About My Hardware Design Skills
 
-The GitHub Actions workflow that builds and deploys your site to Github Pages is defined by the `pages.yml` file. You'll need to edit this file to that so that your build and deploy steps look to your `docs` directory, rather than the project root.
+While I've spent decades in embedded systems engineering, I approach FPGA design more like a jazz musician learning classical piano - enthusiastic but occasionally hitting the wrong notes. 
 
-1.  Set the default `working-directory` param for the build job.
+Professional FPGA designers might spot places where my design choices resemble using a screwdriver to hammer in a nail - functional, but not quite orthodox.
 
-    ```yaml
-    build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: docs
-    ```
+I'm an embedded software engineer who decided to venture into the hardware realm, armed with determination and just enough knowledge to be dangerous. I looked at an FPGA and thought "How hard could it be?" (Narrator: It was harder than he thought.)
 
-2.  Set the `working-directory` param for the Setup Ruby step.
+This series documents my journey from bit-banging microcontrollers to wrestling with hardware description languages. 
 
-    ```yaml
-    - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-          cache-version: 0
-          working-directory: '${{ github.workspace }}/docs'
-    ```
+If you're a professional FPGA designer, feel free to treat this as a form of engineering comedy - just remember, we embedded folks are trying our best with our software hammers in this rapidly growing hardware world. 
 
-3.  Set the path param for the Upload artifact step:
+And hey, if it works, it works... right?
 
-    ```yaml
-    - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: "docs/_site/"
-    ```
+(Professional FPGA designers, I promise the code will eventually synthesize. Most of it. Probably.)
 
-4.  Modify the trigger so that only changes within the `docs` directory start the workflow. Otherwise, every change to your project (even those that don't affect the docs) would trigger a new site build and deploy.
+## Without Further Ado
 
-    ```yaml
-    on:
-      push:
-        branches:
-          - "main"
-        paths:
-          - "docs/**"
-    ```
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. You are generally free to reuse or extend upon this code as you see fit; just include the original copy of the license (which is preserved when you "make a template"). While it's not necessary, we'd love to hear from you if you do use this template, and how we can improve it for future use!
-
-The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party [starter workflows]. A copy of their MIT License is available in [actions/starter-workflows].
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Jekyll]: https://jekyllrb.com
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[Bundler]: https://bundler.io
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
-[`jekyll-default-layout`]: https://github.com/benbalter/jekyll-default-layout
-[`jekyll-seo-tag`]: https://jekyll.github.io/jekyll-seo-tag
-[MIT License]: https://en.wikipedia.org/wiki/MIT_License
-[starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
-[actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+Stay tuned for the first technical article in the series, where we'll get our development environment set up and create our first simple sine wave generator. After all, every synthesizer has to start somewhere!
