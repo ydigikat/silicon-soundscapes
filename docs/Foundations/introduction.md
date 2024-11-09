@@ -95,7 +95,7 @@ We do, however, need a basic understanding of some fundamentals in order to make
 
 At its core, digital audio is about capturing continuous sound waves and representing them as a series of discrete numerical values. 
 
-Imagine taking a photograph of a moving object – just as a photo captures an instant in time, digital audio captures snapshots of sound pressure levels many thousands of times per second. These snapshots, or samples, when played back in rapid succession, recreate the original sound.
+Imagine taking a photograph of a moving object – just as a photo captures an instant in time, digital audio captures snapshots of sound pressure levels many thousands of times per second. These snapshots, or samples, when played back in rapid succession, recreate the original sound, much the same way as individual frames, pictures, in a film when played back in rapid succession produce a moving picture.
 
 The quality and accuracy of this digital representation depend on two fundamental parameters: sample rate and bit depth. 
 
