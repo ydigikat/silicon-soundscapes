@@ -1,10 +1,10 @@
-# Welcome To Silicon Soundscapes
+# Welcome to Silicon Soundscapes : Tulia 
 
-## FPGA Synthesis: An Old Engineer's New Adventure
+## FPGA Synthesisers: An Old Engineer's New Adventure
 
-After spending three decades elbow-deep in embedded systems, watching the industry evolve from simple 8-bit microcontrollers to today's complex SoCs, I've decided it's time for a new challenge. 
+After spending almost four decades elbow-deep in embedded systems, watching the industry evolve from simple 8-bit microcontrollers to today's complex SoCs, I've decided it's time for a new challenge. 
 
-Rather than settling into a quiet retirement, I've found myself drawn into the fascinating world of FPGA-based audio synthesis - a perfect fusion of my engineering career and my parallel life as a musician.
+Rather than settling into a quiet semi-retirement, I've found myself drawn into the fascinating world of FPGA-based audio synthesis - a perfect fusion of my engineering career and my parallel life as a musician.
 
 ## Where Engineering Meets Music
 
@@ -35,7 +35,7 @@ I chose the Digilent CMOD-A7 as my development platform for several reasons. It'
 
 Plus, its compact form factor is more familiar to me, reminding me of the microcontroller development boards I've worked with throughout my career.
 
-Of course, this project will work equally well on any board that hosts a Xilinx (AMD) 7 Series FPGA of equivalent (or better) capability.  Indeed, I started this project on a Digilent Arty-Z7 SOC board.
+Of course, this project will work equally well on any board that hosts a Xilinx (AMD) 7 Series FPGA of equivalent (or better) capability.  Indeed, I started this project on a Digilent Arty-Z7 Zynq board while waiting for the CMOD-A7 to arrive.
 
 ## What to Expect from This Series
 
@@ -105,13 +105,22 @@ The beauty of FPGAs is that they let us create true hardware implementations of 
 
 For anyone who's ever fought with CPU cycles or interrupt latency while trying to generate audio, this is a liberating, if challenging, experience.
 
+## What's with the Name, Tulia?
+No reason.  I just choose to name my audio projects with those used by Ancient Romans. 
+
+Tulia was the daughter of the Roman statesman Marcus Tulius Cicero.  Daughters typically took a feminine form of their fathers middle name (nomen gentilicium) which indicated the father's gens, a partriachal family line. So, Tulia from Tulius.  Julia, from Gaius Julius Caesar is another famous example still in common use today.  
+
+And with that, I shall spare you any further lectures on Ancient Roman history, another interest of mine.
+
+You can, of course, use whatever name you like.
+
 ## About My Hardware Design Skills
 
-While I've spent decades in embedded systems engineering, I approach FPGA design more like a jazz musician learning classical piano - enthusiastic but occasionally hitting the wrong notes. 
+While I've spent decades in embedded systems engineering, I approach FPGA design more like a jazz musician dabbling with classical piano - enthusiastic but occasionally hitting bum notes. 
 
-Professional FPGA designers might spot places where my design choices resemble using a screwdriver to hammer in a nail - functional, but not quite orthodox.
+Professional FPGA designers will spot places where my design choices resemble using a screwdriver to hammer in a nail - functional, but not quite orthodox.
 
-I'm an embedded software engineer who decided to venture into the hardware realm, armed with determination and just enough knowledge to be dangerous. I looked at an FPGA and thought "How hard could it be?" (Narrator: It was harder than he thought.)
+You find me now, armed with determination and just enough knowledge to be dangerous. I looked at an FPGA and thought "How hard could it be?" (Narrator: It was harder than he thought.)
 
 This series documents my journey from bit-banging microcontrollers to wrestling with hardware description languages. 
 
@@ -121,6 +130,6 @@ And hey, if it works, it works... right?
 
 (Professional FPGA designers, I promise the code will eventually synthesize. Most of it. Probably.)
 
-## Without Further Ado
+## Let's Get Crackin'
 
-Stay tuned for the first technical article in the series, where we'll get our development environment set up and create our first simple sine wave generator. After all, every synthesizer has to start somewhere!
+So lets get going on the series, we'll start to get our development environment set up and create our first simple sine wave generator. Tulia, like every synthesizer has to start somewhere!
