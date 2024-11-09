@@ -6,7 +6,9 @@ nav_order: 1
 permalink: /
 
 ---
-# Welcome to Silicon Soundscapes : Tullia 
+# Welcome to Tullia 
+
+### A Silicon Soundscapes Project
 
 ## FPGA Synthesisers: An Old Engineer's New Adventure
 
