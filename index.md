@@ -1,12 +1,12 @@
 ---
 title: Home
 layout: home
-description: "Silicon Soundscapes Tulia is a set of articles accompanying a project to build an FPGA synthesiser on the CMOD-A7 FPGA board."
+description: "Silicon Soundscapes Tullia is a set of articles accompanying a project to build an FPGA synthesiser on the CMOD-A7 FPGA board."
 nav_order: 1
 permalink: /
 
 ---
-# Welcome to Silicon Soundscapes : Tulia 
+# Welcome to Silicon Soundscapes : Tullia 
 
 ## FPGA Synthesisers: An Old Engineer's New Adventure
 
@@ -113,10 +113,10 @@ The beauty of FPGAs is that they let us create true hardware implementations of 
 
 For anyone who's ever fought with CPU cycles or interrupt latency while trying to generate audio, this is a liberating, if challenging, experience.
 
-## What's with the Name, Tulia?
+## What's with the Name, Tullia?
 No reason.  I just choose to name my audio projects with those used by Ancient Romans. 
 
-Tulia was the daughter of the Roman statesman Marcus Tulius Cicero.  Daughters typically took a feminine form of their fathers middle name (nomen gentilicium) which indicated the father's gens, a partriachal family line. So, Tulia from Tulius.  Julia, from Gaius Julius Caesar is another famous example still in common use today.  
+Tullia was the daughter of the Roman statesman Marcus Tulius Cicero.  Daughters typically took a feminine form of their fathers middle name (nomen gentilicium) which indicated the father's gens, a partriachal family line. So, Tullia from Tullius.  Julia, from Gaius Julius Caesar is another famous example still in common use today.  
 
 And with that, I shall spare you any further lectures on Ancient Roman history, another interest of mine.
 
@@ -140,4 +140,4 @@ And hey, if it works, it works... right?
 
 ## Let's Get Crackin'
 
-So lets get going on the series, we'll start to get our development environment set up and create our first simple sine wave generator. Tulia, like every synthesizer has to start somewhere!
+So lets get going on the series, we'll start to get our development environment set up and create our first simple sine wave generator. Tullia, like every synthesizer has to start somewhere!
