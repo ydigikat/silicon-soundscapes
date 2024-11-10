@@ -85,12 +85,24 @@ The system's memory architecture is designed to balance performance with cost-ef
 
 The Microcontroller (MCU) primarily relies on external memory, which offers larger capacity at a lower cost. While this external memory is slower, requiring dozens of cycles per access through the AXI interface, the MCU compensates by using a small 4kB block RAM cache to store frequently accessed instructions and data, thereby improving overall performance.
 
-In contrast, the Audio Processing Accelerators exclusively use block RAM (BRAM). Though BRAM has limited capacity, it provides very fast access speeds (1-2 clock cycles), making it ideal for time-critical operations like lookup tables and delay lines. 
+In contrast, the Audio Processing Accelerators exclusively use block RAM (BRAM). Though BRAM has limited capacity, it is part of the FPGA fabric and so provides very fast access speeds (1-2 clock cycles), making it ideal for time-critical operations like lookup tables and delay lines. 
 
 This dual approach—using external memory for bulk storage and BRAM for speed-critical components—creates an efficient balance between performance, cost, and functionality.
 
 
 # Creating the MicroBlaze Hardware Platform
+
+MicroBlaze is a highly configurable soft-core processor implemented using FPGA logic resources. 
+
+It features a 32-bit Reduced Instruction Set Computing (RISC) architecture with a Harvard memory configuration, separating instruction and data access paths. 
+
+The processor employs a 3-stage or 5-stage pipeline depending on configuration, allowing for optimization between performance and resource utilization.
+
+The processor core is highly configurable, allowing us to enable only the features that we need.  The A7-35T FPGA has a modest number of logic elements and so limiting the number used by MicroBlaze is our primary constraint.
+
+
+
+
 
 
 
