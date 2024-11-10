@@ -83,7 +83,7 @@ Acts as the communication backbone of the system.  AXI interconnect allows compo
 
 The system's memory architecture is designed to balance performance with cost-effectiveness. 
 
-The Microcontroller (MCU) primarily relies on external memory, which offers larger capacity at a lower cost. While this external memory is slower, requiring dozens of cycles per access through the AXI interface, the MCU compensates by using a small 4kB block RAM cache to store frequently accessed instructions and data, thereby improving overall performance.
+The Microcontroller (MCU) primarily relies on external memory, which offers larger capacity at a lower cost. While this external memory is slower, requiring dozens of cycles per access through the AXI interface, the MCU compensates by using a small  block RAM cache to store frequently accessed instructions and data, thereby improving overall performance.
 
 In contrast, the Audio Processing Accelerators exclusively use block RAM (BRAM). Though BRAM has limited capacity, it is part of the FPGA fabric and so provides very fast access speeds (1-2 clock cycles), making it ideal for time-critical operations like lookup tables and delay lines. 
 
@@ -98,7 +98,73 @@ It features a 32-bit Reduced Instruction Set Computing (RISC) architecture with 
 
 The processor employs a 3-stage or 5-stage pipeline depending on configuration, allowing for optimization between performance and resource utilization.
 
-The processor core is highly configurable, allowing us to enable only the features that we need.  The A7-35T FPGA has a modest number of logic elements and so limiting the number used by MicroBlaze is our primary constraint.
+MicroBlaze provides 3 starting configurations on which to base a design:
+
+- Microcontroller
+- RealTime Processor
+- Application Processor
+
+We will be using the Microcontroller preset as our starting point, this is the least performant, implementing a 3-stage pipeline, but occupies the smallest count of logic elements.  Given that the FPGA we're using has a modest number of logic elements, space is our main constraint.
+
+Beyond this we can also configure other details of the processor.
+
+In addition to the preset, we will be enabling:
+
+- Hardware support for integer divide/multiply.  
+- Barrel Shifter
+- AXI Instruction and Data caches
+
+## The Vivado Project
+
+Start Vivado and open the project we created earlier in the [Development Environment and Tools ](devtools.md) section.  If you didn't complete this step earlier, then go and do so now before continuing.
+
+### Step 1: Create and Configure MicroBlaze
+
+{: .tip}
+> There are many steps in this workflow that could be automated using "Designer Assistance" featured in Vivado.  This tool (the green bar that pops-up at the top of the design) helps configure and connect the design, adding other components as required.  This tool provides a great productivity gain but for the moment we will do things manually to get familiar with the process.
+
+We are going to create a block design.  The Vivado block design lets us visually design a platform by adding and connecting components (called IP cores) of various kinds.  It is a common pattern top-level designs to be implemented this way.
+
+In the Flow Navigator pane on the left:
+
+    -  Click on "Create Block Design" 
+    -  Change the design name to "system" and leave the other fields unchanged.  
+    -  Click OK to create the block design.
+
+Add the MicroBlaze processor:
+
+    - Click the + button and search for MicroBlaze in the IP catalogue.
+    - Select the "MicroBlaze" entry, the first in the list.  This will add the block to the design
+
+![MicroBlaze image](microblaze.png)
+
+    - Double-click the MicroBlaze component to open the customisation dialog:
+
+  The customisation dialog has multiple pages and we'll be making changes on several of them.  This paged "wizard" approach is common for many of the IP cores that we'll use.
+
+  Observe the useful resource estimates graph on the left.  Right now MicroBlaze is using around 10% of the FPGA area (logic elements) and performance is very low, at 10% of MicroBlaze maximum.  Keep an eye on this graph as we make the various configuration changes.
+
+  ![alt text](image.png)
+
+Configure the MicroBlaze processor:
+
+    - Change the configuration dropdown to "Microcontroller Preset"
+    - Check "Use Instruction and Data Caches"
+    - Click Next
+    - Check "Enable Integer Divider"
+    - Click Next
+
+
+If you look at the graph now you'll notice that the area and performance have gone up, and the frequency has decreased.  A high CPU is important in the PC world so is this a bad thing?
+
+While the clock frequency has decreased, this actually reflects the more sophisticated processor design. 
+
+Think of it like this: Before our changes, each clock cycle could only accomplish simple operations. The higher clock frequency was needed because it took multiple cycles to complete complex tasks like multiplication and division.
+
+Now, though running at a lower frequency, each clock cycle accomplishes much more work thanks to hardware features like dedicated multipliers, changes, and other improved pipeline handling. 
+
+The frequency reduction is necessary because these more complex hardware operations need more time to complete within a single clock cycle - but the processor accomplishes far more work per cycle than before.
+
 
 
 
