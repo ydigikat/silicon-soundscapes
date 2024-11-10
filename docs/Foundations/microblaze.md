@@ -52,7 +52,9 @@ Network interface cards (host CPU + network processor)
 
 In our case, we're using this pattern to create an audio processing platform that combines the ease of programming an MCU with the processing power of custom FPGA logic.
 
+Many higher-end FPGAs have hardware processors implemented on the same die as the FPGA fabric. The Artix 7 FPGA that we are using does not have a hardware processor so we will be implementing a softcore processor, MicroBlaze, in the FPGA fabric itself.
 ### The Big Picture
+
 
 Our architecture demonstrates a clear separation of concerns between three main subsystems:
 
