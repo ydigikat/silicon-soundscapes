@@ -100,13 +100,16 @@ It features a 32-bit Reduced Instruction Set Computing (RISC) architecture with 
 
 The processor employs a 3-stage or 5-stage pipeline depending on configuration, allowing for optimization between performance and resource utilization.
 
-MicroBlaze provides 3 starting configurations on which to base a design:
+AMD provides a full GCC toolchain for MicroBlaze (the Vitis IDE) together with drivers for any AMD supplied
+peripherals we use. We will have to write drivers for our own accelerators if the MCU needs to interface with them.
+
+MicroBlaze supplies 3 starting configurations, from lowest to highest performance, on which to base a design:
 
 - Microcontroller
 - RealTime Processor
 - Application Processor
 
-We will be using the Microcontroller preset as our starting point, this is the least performant, implementing a 3-stage pipeline, but occupies the smallest count of logic elements.  Given that the FPGA we're using has a modest number of logic elements, space is our main constraint.
+We will be using the Microcontroller preset as our starting point, this is the least performant, utilising a 3-stage pipeline, but consumes the smallest count of logic elements.  Given that the FPGA we're using has a modest number of logic elements, space is our main constraint.
 
 Beyond this we can also configure other details of the processor.
 
